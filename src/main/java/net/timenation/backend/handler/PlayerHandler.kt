@@ -11,7 +11,6 @@ import net.timenation.backend.player.CrystalUpdateType
 class PlayerHandler : DefaultHandler(), HttpHandler {
 
     override fun handle(exchange: HttpExchange?) {
-        Logger.log(exchange?.requestMethod, LogType.INFO)
         when (exchange?.requestMethod) {
             "GET" -> {
                 if (getRequestAsJsonObject(exchange)!!["key"].asString == Backend.instance.playerKey) {

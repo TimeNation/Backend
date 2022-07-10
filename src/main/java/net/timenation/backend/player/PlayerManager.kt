@@ -17,7 +17,7 @@ class PlayerManager {
 
         jsonObject.addProperty("username", username)
         jsonObject.addProperty("uuid", uuid)
-        jsonObject.addProperty("language", "de")
+        jsonObject.addProperty("language", "en")
         jsonObject.addProperty("crystals", 100)
         jsonObject.addProperty("lootboxes", 0)
 
@@ -66,7 +66,7 @@ class PlayerManager {
             jsonPlayerGadgetObject.addProperty("helmet", helmet)
             jsonPlayerGadgetObject.addProperty("gadget", gadget)
 
-            jsonObject.add("playerInformation", jsonPlayerGadgetObject)
+            jsonObject.add("gadgetData", jsonPlayerGadgetObject)
             Backend.instance.mysql.updateDatabase("UPDATE playerData SET playerData='$jsonObject' WHERE playerUuid='$uuid'")
             Logger.log("Update playerData for $username", LogType.INFO)
             return jsonObject.toString()
