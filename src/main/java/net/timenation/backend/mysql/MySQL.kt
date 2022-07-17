@@ -1,6 +1,8 @@
 package net.timenation.backend.mysql
 
 import com.mysql.cj.jdbc.MysqlDataSource
+import net.timenation.backend.Backend
+import net.timenation.backend.config.BackendConfig
 import net.timenation.backend.logger.LogType
 import net.timenation.backend.logger.Logger
 import java.sql.Connection
@@ -23,9 +25,9 @@ class MySQL {
     init {
         host = "127.0.0.1"
         port = 3306
-        user = "user"
-        password = "w5vffZjUzJnlTXaWIGKcCeblkmjaKU"
-        database = "Storage"
+        user = "admin"
+        password = Backend.instance.timeConfig.mysqlPassword
+        database = "timenation"
         executorService = Executors.newCachedThreadPool()
         connectToDatabase()
     }

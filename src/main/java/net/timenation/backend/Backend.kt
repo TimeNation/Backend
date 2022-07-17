@@ -1,14 +1,15 @@
 package net.timenation.backend
 
+import net.timenation.backend.config.BackendConfig
 import net.timenation.backend.logger.LogType
 import net.timenation.backend.logger.Logger
 import net.timenation.backend.manager.RequestManager
 import net.timenation.backend.mysql.MySQL
 import net.timenation.backend.player.PlayerManager
 import net.timenation.backend.server.WebServer
+import java.io.File
 import java.io.IOException
 import java.util.*
-import kotlin.jvm.Throws
 
 class Backend {
 
@@ -16,6 +17,8 @@ class Backend {
     lateinit var mysql: MySQL
     val playerManager: PlayerManager = PlayerManager()
     val playerKey: String = "nmOGpnvkCrrIug8Hxdvot9VI2Jrfwz4ASI9O9zNQjIRihQwTqF"
+    val timeConfig: BackendConfig = BackendConfig().loadConfig(File("config.json"))
+
 
     companion object {
         @JvmStatic

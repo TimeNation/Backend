@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.7.10'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'application'
 }
 
 group = 'net.timenation'
@@ -15,6 +16,9 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.29'
 }
 
+application {
+    mainClass = 'net.timenation.backend.Backend'
+}
 test {
     useJUnitPlatform()
 }
