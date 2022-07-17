@@ -2,7 +2,6 @@ package net.timenation.backend.manager
 
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import lombok.SneakyThrows
 import net.timenation.backend.Backend
 import java.io.BufferedReader
 import java.io.DataOutputStream
