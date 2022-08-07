@@ -11,6 +11,15 @@ import java.io.File
 import java.io.IOException
 import java.util.*
 
+fun main() {
+    Logger.log("Trying to start TimeNation Backend...", LogType.INFO)
+    val webServer = WebServer()
+    webServer.startWebServer()
+    Backend.instance.mysql = MySQL()
+    Runtime.getRuntime().addShutdownHook(Thread { webServer.stopWebServer() })
+    Logger.log("Successfully started TimeNation Backend!", LogType.SUCCESSFULLY)
+}
+
 class Backend {
 
     val requestManager: RequestManager = RequestManager()
@@ -23,16 +32,5 @@ class Backend {
     companion object {
         @JvmStatic
         val instance: Backend = Backend()
-
-        @Throws(IOException::class)
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Logger.log("Trying to start TimeNation Backend...", LogType.INFO)
-            val webServer = WebServer()
-            webServer.startWebServer()
-            instance.mysql = MySQL()
-            Runtime.getRuntime().addShutdownHook(Thread { webServer.stopWebServer() })
-            Logger.log("Successfully started TimeNation Backend!", LogType.SUCCESSFULLY)
-        }
     }
 }
